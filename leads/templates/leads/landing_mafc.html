@@ -53,9 +53,7 @@ img{max-width:100%;display:block}
 }
 
 /* HERO */
-.hero{
-  padding:50px 0 30px;
-}
+.hero{padding:50px 0 30px}
 .hero-text{text-align:center}
 .hero h1{
   color:var(--orange);
@@ -63,11 +61,7 @@ img{max-width:100%;display:block}
   font-weight:700;
   margin-bottom:12px;
 }
-.hero p{
-  font-size:15px;
-  margin-bottom:20px;
-  text-align:center;
-}
+.hero p{font-size:15px;margin-bottom:20px}
 
 /* HERO LINES */
 .hero-lines{
@@ -109,11 +103,7 @@ section{padding:50px 0}
 }
 .products .box img{height:90px;margin:0 auto 18px}
 .process .box img{height:56px;margin:0 auto 14px}
-.box h3{
-  color:var(--blue);
-  font-size:16px;
-  margin-bottom:8px;
-}
+.box h3{color:var(--blue);font-size:16px;margin-bottom:8px}
 .box p{font-size:14px;margin:0}
 
 /* FORM */
@@ -125,11 +115,7 @@ section{padding:50px 0}
   max-width:420px;
   margin:auto;
 }
-.form-wrap h2{
-  text-align:center;
-  color:var(--blue);
-  margin-bottom:20px;
-}
+.form-wrap h2{text-align:center;color:var(--blue);margin-bottom:20px}
 .form-group{margin-bottom:14px}
 .form-group input,
 .form-group select{
@@ -157,33 +143,27 @@ section{padding:50px 0}
 .award-box .year{font-weight:600;color:var(--blue)}
 .award-box .desc{font-size:12px}
 
-/* NEW: CONTACT FLOAT – PILL GỌN & CHUYÊN NGHIỆP */
-.contact-float{
+/* ✅ ZALO PILL – GIỐNG ẢNH ANH GỬI */
+.zalo-pill{
   position:fixed;
   right:16px;
   bottom:24px;
   display:flex;
-  flex-direction:column;
-  gap:10px;
-  z-index:2000;
-}
-.contact-btn{
-  display:flex;
   align-items:center;
   gap:10px;
-  padding:10px 16px;
-  border-radius:999px;
+  padding:10px 18px;
   background:#fff;
-  box-shadow:0 6px 16px rgba(0,0,0,.15);
+  border-radius:999px;
+  box-shadow:0 6px 16px rgba(0,0,0,.18);
   text-decoration:none;
-  font-weight:600;
-  color:#222;
+  font-weight:700;
   font-size:14px;
+  color:var(--orange);
+  z-index:2000;
 }
-.contact-btn img{width:26px;height:26px}
-.contact-btn.phone{
-  background:var(--orange);
-  color:#fff;
+.zalo-pill img{
+  width:26px;
+  height:26px;
 }
 
 /* FOOTER */
@@ -205,7 +185,6 @@ footer{
     align-items:center;
   }
   .hero-text{text-align:left}
-  .hero p{text-align:left}
   .grid{grid-template-columns:repeat(3,1fr)}
 }
 </style>
@@ -217,13 +196,11 @@ footer{
   <div class="container">
     <div class="topbar-inner">
       <img src="{% static 'img/logo.png' %}">
-      <!-- NEW: không dùng anchor -->
       <a class="btn-top" onclick="scrollToForm()">ĐĂNG KÝ TƯ VẤN</a>
     </div>
   </div>
 </header>
 
-<!-- HERO -->
 <div class="container hero">
   <div class="hero-text">
     <h1>Bảo vệ tài chính an tâm trong kỷ nguyên số</h1>
@@ -234,7 +211,6 @@ footer{
   </div>
 </div>
 
-<!-- HERO LINES -->
 <div class="hero-lines">
   <div class="line-main">VAY TIỀN MẶT TRẢ GÓP</div>
   <div class="line-sub">Khoản vay từ 10 đến 500 triệu đồng</div>
@@ -248,7 +224,7 @@ footer{
     <div class="grid">
       <div class="box"><img src="{% static 'img/mafc/products/vay_online.png' %}"><h3>Vay online</h3><p>Đăng ký trực tuyến tiện lợi</p></div>
       <div class="box"><img src="{% static 'img/mafc/products/vay_tra_gop.png' %}"><h3>Trả góp hàng tháng</h3><p>Lộ trình thanh toán rõ ràng</p></div>
-      <div class="box"><img src="{% static 'img/mafc/products/vay_cic_khac.png' %}"><h3>Lịch sử tín dụng</h3><p>Khách hàng cũ hoặc đã có dư nợ tại tổ chức khác</p></div>
+      <div class="box"><img src="{% static 'img/mafc/products/vay_cic_khac.png' %}"><h3>Lịch sử tín dụng</h3><p>Khách hàng cũ hoặc khách hàng đã có dư nợ tại tổ chức khác</p></div>
     </div>
   </div>
 </section>
@@ -267,44 +243,13 @@ footer{
 <section class="gray" id="dangky">
   <div class="container">
     <div class="form-wrap">
-      <h2>Đăng ký tư vấn tài chính</h2>
-
-      {% if error %}
-      <p style="color:#f37021;text-align:center;margin-bottom:14px;font-size:13px;">
-        {{ error }}
-      </p>
-      {% endif %}
-
+      <h2>Đăng ký tư vấn khoản vay</h2>
       <form method="post">
         {% csrf_token %}
         <div class="form-group"><input name="full_name" placeholder="Họ và tên" required></div>
         <div class="form-group"><input name="phone" placeholder="Số điện thoại" required></div>
-        <div class="form-group">
-          <select name="sex">
-            <option>Giới tính</option>
-            <option>Nam</option>
-            <option>Nữ</option>
-          </select>
-        </div>
-        <div class="form-group">
-          <select name="location">
-            <option>Nơi sinh sống</option>
-            <option>Hà Nội</option>
-            <option>TP.HCM</option>
-            <option>Khác</option>
-          </select>
-        </div>
-        <div class="form-group">
-          <select name="job">
-            <option>Ngành nghề</option>
-            <option>Lao động tự do</option>
-            <option>Làm công ty</option>
-            <option>Tự doanh</option>
-            <option>Khác</option>
-          </select>
-        </div>
         <button class="btn">ĐĂNG KÝ TƯ VẤN</button>
-        <p class="consent">Tôi đồng ý nhận cuộc gọi tư vấn từ chuyên viên tài chính trong khung giờ 08h–20h.</p>
+        <p class="consent">Tôi đồng ý nhận cuộc gọi tư vấn từ chuyên viên tài chính trong khung giờ 08h - 20h.</p>
       </form>
     </div>
   </div>
@@ -326,21 +271,17 @@ footer{
 All rights reserved 2st Floor, Mekong Building, 91 Pasteur, Sai Gon Ward, HCMC, Vietnam
 </footer>
 
-<!-- REMOVE: old zalo-float & phone-float -->
+<!-- ✅ ZALO PILL – 1 Ô DUY NHẤT -->
+<a href="https://zalo.me/0829133391" target="_blank" class="zalo-pill">
+  <img src="{% static 'img/zalo.png' %}">
+  <span>0829133391</span>
+</a>
 
-<!-- NEW: CONTACT FLOAT -->
-<div class="contact-float">
-  <a href="https://zalo.me/0829133391" target="_blank" class="contact-btn">
-    <img src="{% static 'img/zalo.png' %}">
-    <span>0829133391</span>
-  </a>
-  <a href="tel:0829133391" class="contact-btn phone">
-    ☎ 0829133391
-  </a>
-</div>
-
-<!-- NEW: SCROLL CONTROL -->
 <script>
+/* FIX TRIỆT ĐỂ NHẢY FORM KHI URL CÓ # */
+if (window.location.hash) {
+  history.replaceState(null, null, window.location.pathname);
+}
 function scrollToForm(){
   document.getElementById('dangky').scrollIntoView({behavior:'smooth'});
 }
