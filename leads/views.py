@@ -25,7 +25,7 @@ def landing_mafc(request):
         )
 
         # 🔥 REDIRECT CHUẨN – KHÔNG 404
-        return redirect('success')
+        return redirect('/mafc/success/')
 
     return render(request, 'leads/landing_mafc.html')
 
