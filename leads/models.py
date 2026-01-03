@@ -1,16 +1,12 @@
 from django.db import models
 
 class Lead(models.Model):
-    SEX_CHOICES = (
-        ("Nam", "Nam"),
-        ("Nữ", "Nữ"),
-    )
-
-    full_name = models.CharField(max_length=100)
+    full_name = models.CharField(max_length=255)
     phone = models.CharField(max_length=20)
-    sex = models.CharField(max_length=10, choices=SEX_CHOICES)
-    location = models.CharField(max_length=50)
-    job = models.CharField(max_length=50)
+
+    location = models.CharField(max_length=50, blank=True)
+    job = models.CharField(max_length=50, blank=True)
+
     created_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
