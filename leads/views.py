@@ -1,33 +1,34 @@
 from django.shortcuts import render, redirect
-from django.utils import timezone
-from datetime import timedelta
 from .models import Lead
 
-
 def landing_mafc(request):
-    if request.method == "POST":
-        phone = request.POST.get("phone")
+    if request.method == 'POST':
+        full_name = request.POST.get('full_name')
+        phone = request.POST.get('phone')
+        sex = request.POST.get('sex')
+        location = request.POST.get('location')
+        job = request.POST.get('job')
 
-        # ===== CHỐNG SPAM: 10 PHÚT / 1 SỐ =====
-        limit_time = timezone.now() - timedelta(minutes=10)
-        if Lead.objects.filter(phone=phone, created_at__gte=limit_time).exists():
-            return render(request, "leads/landing_mafc.html", {
-                "error": "Số điện thoại này vừa gửi thông tin. Vui lòng thử lại sau ít phút."
+        # Validate tối thiểu
+        if not full_name or not phone:
+            return render(request, 'leads/landing_mafc.html', {
+                'error': 'Vui lòng nhập đầy đủ họ tên và số điện thoại'
             })
 
-        # ===== LƯU LEAD =====
+        # Lưu DB
         Lead.objects.create(
-            full_name=request.POST.get("full_name"),
+            full_name=full_name,
             phone=phone,
-            sex=request.POST.get("sex"),
-            location=request.POST.get("location"),
-            job=request.POST.get("job"),
+            sex=sex,
+            location=location,
+            job=job
         )
 
-        return redirect("/mafc/success/")
+        # 🔥 REDIRECT CHUẨN – KHÔNG 404
+        return redirect('success')
 
-    return render(request, "leads/landing_mafc.html")
+    return render(request, 'leads/landing_mafc.html')
 
 
 def success(request):
-    return render(request, "leads/landing_success.html")
+    return render(request, 'leads/landing_success.html')
