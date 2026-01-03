@@ -4,6 +4,19 @@
 <head>
 <meta charset="UTF-8">
 <title>Giải pháp tài chính tiêu dùng</title>
+<!-- ===== OPEN GRAPH (PREVIEW KHI DÁN LINK) ===== -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="Giải pháp tài chính tiêu dùng – MAFC">
+<meta property="og:description" content="Hỗ trợ vay tín chấp 10 triệu - 500 triệu. Đăng ký online – tư vấn miễn phí.">
+<meta property="og:image" content="{{ request.scheme }}://{{ request.get_host }}{% static 'img/mafc/og-preview.jpg' %}">
+<meta property="og:url" content="{{ request.build_absolute_uri }}">
+
+<!-- ZALO / FACEBOOK -->
+<meta property="og:site_name" content="MAFC Finance">
+
+<!-- TELEGRAM -->
+<meta name="twitter:card" content="summary_large_image">
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -244,6 +257,18 @@ footer{
   <div class="container">
     <div class="form-wrap">
       <h2>Đăng ký tư vấn khoản vay</h2>
+      {% if spam_warning %}
+  <p style="
+    color:#f37021;
+    font-size:13px;
+    margin-bottom:14px;
+    text-align:center;
+  ">
+    {{ spam_warning }}
+  </p>
+{% endif %}
+
+      
       <form method="post" action="/submit/">
   {% csrf_token %}
 
