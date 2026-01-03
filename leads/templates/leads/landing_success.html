@@ -1,0 +1,186 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<title>Đăng ký thành công</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --orange:#f37021;
+  --blue:#0f2a44;
+  --gray:#f6f8fa;
+}
+
+body{
+  margin:0;
+  font-family:'Inter',sans-serif;
+  background:#fff;
+  color:#222;
+}
+
+/* ===== HEADER GIỐNG TRANG CHÍNH ===== */
+.topbar{
+  position:sticky;
+  top:0;
+  background:#fff;
+  border-bottom:1px solid #eee;
+}
+.topbar-inner{
+  max-width:1200px;
+  margin:auto;
+  padding:12px 16px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+.topbar img{height:34px}
+
+/* ===== CONTENT ===== */
+.wrap{
+  min-height:calc(100vh - 140px);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:24px;
+  background:var(--gray);
+}
+.box{
+  background:#fff;
+  max-width:460px;
+  width:100%;
+  padding:36px 28px;
+  border-radius:12px;
+  text-align:center;
+  box-shadow:0 12px 30px rgba(0,0,0,.08);
+}
+.box img{
+  max-width:220px;
+  margin:0 auto 18px;
+}
+.box h1{
+  color:var(--orange);
+  font-size:22px;
+  margin-bottom:10px;
+}
+.box p{
+  font-size:14px;
+  line-height:1.6;
+  margin-bottom:24px;
+}
+
+/* ===== BUTTON ===== */
+.btn{
+  display:block;
+  background:var(--orange);
+  color:#fff;
+  padding:14px;
+  border-radius:6px;
+  text-decoration:none;
+  font-weight:600;
+  margin-bottom:12px;
+}
+.btn-outline{
+  display:block;
+  border:1px solid var(--blue);
+  color:var(--blue);
+  padding:12px;
+  border-radius:6px;
+  text-decoration:none;
+  font-size:14px;
+}
+
+/* ===== FOOTER GIỐNG TRANG CHÍNH ===== */
+footer{
+  background:#f6f8fa;
+  padding:20px;
+  font-size:11.5px;
+  color:#666;
+  font-style:italic;
+  text-align:center;
+  border-top:1px solid #ddd;
+}
+/* ===== FLOAT ZALO + PHONE ===== */
+.zalo-float{
+  position:fixed;
+  right:16px;
+  bottom:86px;
+  width:52px;
+  height:52px;
+  background:#fff;
+  border-radius:50%;
+  box-shadow:0 4px 12px rgba(0,0,0,0.15);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  z-index:999;
+}
+.zalo-float img{
+  width:34px;
+}
+
+.phone-float{
+  position:fixed;
+  right:16px;
+  bottom:20px;
+  background:#f37021;
+  color:#fff;
+  padding:10px 18px;
+  border-radius:30px;
+  font-size:14px;
+  font-weight:600;
+  text-decoration:none;
+  box-shadow:0 4px 12px rgba(0,0,0,0.2);
+  z-index:999;
+}
+
+</style>
+</head>
+<!-- FLOAT ZALO + SĐT -->
+<a href="https://zalo.me/0829133391" class="zalo-float" target="_blank">
+  <img src="{% static 'img/zalo.png' %}" alt="Zalo">
+</a>
+
+<a href="https://zalo.me/0829133391" class="phone-float" target="_blank">
+  ☎ 0829133391
+</a>
+
+<body>
+
+<header class="topbar">
+  <div class="topbar-inner">
+    <img src="{% static 'img/logo.png' %}">
+  </div>
+</header>
+
+<div class="wrap">
+  <div class="box">
+    <!-- ẢNH CẢM ƠN -->
+    <img src="{% static 'img/mafc/success/thank_you.png' %}" alt="success">
+
+    <h1>Gửi thông tin thành công</h1>
+    <p>
+      Cảm ơn anh/chị đã để lại thông tin.<br>
+      Chuyên viên tài chính sẽ liên hệ tư vấn trong thời gian sớm nhất.
+    </p>
+
+    <a href="https://zalo.me/0829133391" class="btn" target="_blank">
+      💬 Chat Zalo tư vấn ngay
+    </a>
+
+    <a href="/mafc/" class="btn-outline">
+      ⬅ Quay lại trang chủ
+    </a>
+  </div>
+</div>
+
+<footer>
+© 2020 Mirae Asset Finance Company (Vietnam). All rights reserved.<br>
+91 Pasteur, Sai Gon Ward, HCMC, Vietnam.
+</footer>
+
+</body>
+</html>

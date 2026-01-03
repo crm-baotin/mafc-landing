@@ -1,0 +1,340 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<title>Giải pháp tài chính tiêu dùng</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --orange:#f37021;
+  --blue:#0f2a44;
+  --black:#222;
+  --gray:#f6f8fa;
+}
+
+*{box-sizing:border-box}
+body{
+  margin:0;
+  font-family:'Inter',sans-serif;
+  color:var(--black);
+  line-height:1.7;
+}
+img{max-width:100%;display:block}
+.container{max-width:1200px;margin:auto;padding:0 16px}
+
+/* TOP BAR */
+.topbar{
+  position:sticky;
+  top:0;
+  background:#fff;
+  border-bottom:1px solid #eee;
+  z-index:1000;
+}
+.topbar-inner{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:12px 0;
+}
+.topbar img{height:34px}
+.btn-top{
+  background:var(--orange);
+  color:#fff;
+  padding:8px 16px;
+  border-radius:4px;
+  font-size:14px;
+  font-weight:600;
+  text-decoration:none;
+}
+
+/* HERO */
+.hero{
+  padding:50px 0 30px;
+}
+.hero-text{
+  text-align:center;
+}
+.hero h1{
+  color:var(--orange);
+  font-size:28px;
+  font-weight:700;
+  margin-bottom:12px;
+}
+.hero p{
+  font-size:15px;
+  margin-bottom:20px;
+  text-align:center;
+}
+
+/* HERO LINES – FIX CHUẨN */
+.hero-lines{
+  max-width:520px;
+  margin:24px auto 0;
+  text-align:center;
+}
+.hero-lines .line-main{
+  color:var(--orange);
+  font-weight:600;
+  font-size:15px;
+  margin-bottom:6px;
+}
+.hero-lines .line-sub{
+  color:var(--blue);
+  font-size:14px;
+  margin-bottom:4px;
+}
+
+/* SECTION */
+section{padding:50px 0}
+.gray{background:var(--gray)}
+.section-title{
+  text-align:center;
+  color:var(--blue);
+  font-size:20px;
+  font-weight:600;
+  margin-bottom:30px;
+}
+
+/* GRID */
+.grid{
+  display:grid;
+  gap:22px;
+}
+.box{
+  background:#fff;
+  border:1px solid #eee;
+  border-radius:10px;
+  padding:26px 22px;
+  text-align:center;
+}
+.products .box img{height:90px;margin:0 auto 18px}
+.process .box img{height:56px;margin:0 auto 14px}
+.box h3{
+  color:var(--blue);
+  font-size:16px;
+  margin-bottom:8px;
+}
+.box p{font-size:14px;margin:0}
+
+/* FORM */
+.form-wrap{
+  background:#fff;
+  border:1px solid #eee;
+  border-radius:10px;
+  padding:30px 24px;
+  max-width:420px;
+  margin:auto;
+}
+.form-wrap h2{
+  text-align:center;
+  color:var(--blue);
+  margin-bottom:20px;
+}
+.form-group{margin-bottom:14px}
+.form-group input,
+.form-group select{
+  width:100%;
+  padding:12px;
+  border:1px solid #ccc;
+  border-radius:4px;
+}
+.btn{
+  width:100%;
+  background:var(--orange);
+  color:#fff;
+  padding:14px;
+  border:none;
+  border-radius:4px;
+  font-size:16px;
+  font-weight:600;
+}
+.consent{font-size:12px;margin-top:10px}
+
+/* AWARDS */
+.awards .grid{gap:18px}
+.award-box{text-align:center}
+.award-box img{height:42px;margin:0 auto 10px}
+.award-box .year{font-weight:600;color:var(--blue)}
+.award-box .desc{font-size:12px}
+
+/* FLOAT */
+.zalo-float{
+  position:fixed;
+  right:16px;
+  bottom:86px;
+  width:52px;
+  height:52px;
+  background:#fff;
+  border-radius:50%;
+  box-shadow:0 4px 12px rgba(0,0,0,.15);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+.zalo-float img{width:34px}
+.phone-float{
+  position:fixed;
+  right:16px;
+  bottom:20px;
+  background:var(--orange);
+  color:#fff;
+  padding:10px 18px;
+  border-radius:30px;
+  text-decoration:none;
+}
+
+/* FOOTER */
+footer{
+  background:#f6f8fa;
+  padding:26px 16px;
+  font-size:11.5px;
+  font-style:italic;
+  color:#666;
+  border-top:1px solid #ddd;
+}
+
+/* PC */
+@media(min-width:768px){
+  .hero{
+    display:grid;
+    grid-template-columns:1.1fr .9fr;
+    gap:40px;
+    align-items:center;
+  }
+  .hero-text{text-align:left}
+  .hero p{text-align:left}
+  .grid{grid-template-columns:repeat(3,1fr)}
+}
+</style>
+</head>
+
+<body>
+
+<header class="topbar">
+  <div class="container">
+    <div class="topbar-inner">
+      <img src="{% static 'img/logo.png' %}">
+      <a href="#dangky" class="btn-top">ĐĂNG KÝ TƯ VẤN</a>
+    </div>
+  </div>
+</header>
+
+<!-- HERO -->
+<div class="container hero">
+  <div class="hero-text">
+    <h1>Bảo vệ tài chính an tâm trong kỷ nguyên số</h1>
+    <p>Giải pháp tài chính tiêu dùng trực tuyến, minh bạch và phù hợp từng nhu cầu.</p>
+  </div>
+  <div>
+    <img src="{% static 'img/mafc/hero/hero_main.png' %}">
+  </div>
+</div>
+
+<!-- HERO LINES – TÁCH RIÊNG -->
+<div class="hero-lines">
+  <div class="line-main"> VAY TIỀN MẶT TRẢ GÓP</div>
+  <div class="line-sub">Khoản vay từ 10 đến 500 triệu đồng</div>
+  <div class="line-sub">Khách hàng đã có CCCD gắn chip</div>
+  <div class="line-sub">Lộ trình thanh toán rõ ràng, tỷ lệ duyệt vay cao</div>
+</div>
+
+<section class="gray products">
+  <div class="container">
+    <div class="section-title">Giải pháp tài chính số toàn diện</div>
+    <div class="grid">
+      <div class="box"><img src="{% static 'img/mafc/products/vay_online.png' %}"><h3>Vay online</h3><p>Đăng ký trực tuyến tiện lợi</p></div>
+      <div class="box"><img src="{% static 'img/mafc/products/vay_tra_gop.png' %}"><h3>Trả góp hàng tháng</h3><p>Lộ trình thanh toán rõ ràng</p></div>
+      <div class="box"><img src="{% static 'img/mafc/products/vay_cic_khac.png' %}"><h3>Lịch sử tín dụng</h3><p>Khách hàng cũ hoặc khách hàng đã có dư nợ tại tổ chức tài chính khác</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="process">
+  <div class="container">
+    <div class="section-title">Quy trình trực tuyến đơn giản</div>
+    <div class="grid">
+      <div class="box"><img src="{% static 'img/mafc/process/step_1.png' %}"><h3>Hồ sơ trực tuyến</h3><p>Đăng ký nhanh gọn</p></div>
+      <div class="box"><img src="{% static 'img/mafc/process/step_2.png' %}"><h3>Ký hợp đồng điện tử</h3><p>Tiết kiệm thời gian</p></div>
+      <div class="box"><img src="{% static 'img/mafc/process/step_3.png' %}"><h3>Thanh toán 24/7</h3><p>Chủ động mọi lúc</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="gray" id="dangky">
+  <div class="container">
+    <div class="form-wrap">
+      <h2>Đăng ký tư vấn tài chính</h2>
+      {% if error %}
+<p style="
+  color:#f37021;
+  text-align:center;
+  margin-bottom:14px;
+  font-size:13px;
+">
+  {{ error }}
+</p>
+{% endif %}
+
+      <form method="post">
+        {% csrf_token %}
+        <div class="form-group"><input name="full_name" placeholder="Họ và tên" required></div>
+        <div class="form-group"><input name="phone" placeholder="Số điện thoại" required></div>
+        <div class="form-group">
+          <select name="sex">
+            <option>Giới tính</option>
+            <option>Nam</option>
+            <option>Nữ</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <select name="location">
+            <option>Nơi sinh sống</option>
+            <option>Hà Nội</option>
+            <option>TP.HCM</option>
+            <option>Khác</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <select name="job">
+            <option>Ngành nghề</option>
+            <option>Lao động tự do</option>
+            <option>Làm công ty</option>
+            <option>Tự doanh</option>
+            <option>Khác</option>
+          </select>
+        </div>
+        <button class="btn">ĐĂNG KÝ TƯ VẤN</button>
+        <p class="consent">Tôi đồng ý nhận cuộc gọi tư vấn từ chuyên viên tài chính trong khung giờ 08h–20h.</p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<section class="awards">
+  <div class="container">
+    <div class="section-title">Dấu mốc & Giải thưởng</div>
+    <div class="grid">
+      <div class="award-box"><img src="{% static 'img/mafc/awards/award_2017.png' %}"><div class="year">2017</div><div class="desc">Công ty tài chính tăng trưởng tốt nhất Việt Nam</div></div>
+      <div class="award-box"><img src="{% static 'img/mafc/awards/award_2018.png' %}"><div class="year">2018</div><div class="desc">Công ty tài chính tiêu dùng đột phá nhất Việt Nam</div></div>
+      <div class="award-box"><img src="{% static 'img/mafc/awards/award_2019.png' %}"><div class="year">2019</div><div class="desc">Công ty tài chính tiêu dùng đột phá nhất Việt Nam</div></div>
+    </div>
+  </div>
+</section>
+
+<footer>
+
+© 2020 Mirae Asset Finance Company (Vietnam).
+All rights reserved 2st Floor, Mekong Building, 91 Pasteur, Sai Gon Ward, HCMC, Vietnam​​
+</footer>
+
+<a href="https://zalo.me/0829133391" class="zalo-float">
+  <img src="{% static 'img/zalo.png' %}">
+</a>
+<a href="https://zalo.me/0829133391" class="phone-float">☎ 0829133391</a>
+
+</body>
+</html>
